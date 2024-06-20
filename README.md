@@ -43,6 +43,8 @@ main.tf
 output.tf
 variables.tf
 
+We can create backend.tf file as well and store the remote state in S3 bucket ans use DynamoDb to create a lock on erraform state 
+
 Task 2: Kubernetes Deployment
 
 - Created Simple helm chart using helm create nginx-application
@@ -70,3 +72,10 @@ Structure Followed
 │ test-connection.yaml
 
 - To Configure the application for high availability across multiple nodes.We can configure nodeselectors and affinity in the deployment tp spread applications pods across multiple nodes based on the requirements
+
+
+Task 3: CI/CD with GitHub Actions or Similar
+To create a CI/CD Pipeline have created a simple HELLO World Python application . Also have created a Dockerfile o containerize the application 
+In order to create CI/CD Pipeline , in .github/workflow folder have added
+  - build.yaml --> This pipeline is to build the docker image for the applicaion for any push done to the repo
+  - deploy.yaml --> his pipine is to deploy the docker image to saging/production environment , if the changs are pushed to main branch the code is deployed on production environment where as if done to staging then to the staging environment
